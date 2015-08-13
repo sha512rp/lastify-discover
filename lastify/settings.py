@@ -77,10 +77,6 @@ WSGI_APPLICATION = 'lastify.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
 }
 
 # Internationalization
@@ -94,7 +90,7 @@ USE_TZ = True
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default='postgres:///postgres')
 
 # Enable Connection Pooling (if desired)
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
